@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from src.component.data_transformation import DataTransformation,DataTransformationConfig
 from src.component.model_trainer import ModelTrainer,ModelTrainerConfig
+from src.component.hyper_params_tuning import HyperParamTuning,HyperParamTuningConfig
 
 @dataclass
 class DataIngestionConfig:
@@ -42,4 +43,6 @@ if __name__=="__main__":
     train_arr,test_arr,_ = transformation_obj.initiate_transformation(train_set,test_set)
     model_trainer_obj = ModelTrainer()
     _,__,___=model_trainer_obj.initiate_model_trainer(train_arr,test_arr)
+    hyper_param_obj = HyperParamTuning()
+    _,__,___ = hyper_param_obj.initiate_hyper_param_tuning(train_arr,test_arr)
     logging.info("Code run Successfully")
