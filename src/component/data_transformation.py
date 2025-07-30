@@ -21,8 +21,8 @@ class DataTransformation:
     
     def get_transformer_obj(self):
         try:
-            num_cols = ['reading score', 'writing score']
-            cat_cols = ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+            num_cols = ['reading_score', 'writing_score']
+            cat_cols = ['gender', 'ethnicity', 'parental_education', 'lunch', 'test_prep_course']
             
             num_pipe = Pipeline(
                 steps=[
@@ -60,9 +60,9 @@ class DataTransformation:
             logging.info("Obtaining preprocessor obj.")
             preprocessor_obj = self.get_transformer_obj()
 
-            target = "math score"
-            num_cols = ['reading score', 'writing score']
-            cat_cols = ['gender', 'race/ethnicity', 'parental level of education', 'lunch', 'test preparation course']
+            target = "math_score"
+            num_cols = ['reading_score', 'writing_score']
+            cat_cols = ['gender', 'ethnicity', 'parental_education', 'lunch', 'test_prep_course']
             
             input_feature_train_df = train_df.drop(target,axis=1)
             target_feature_train_df = train_df[target]

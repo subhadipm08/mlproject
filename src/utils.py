@@ -53,3 +53,12 @@ def hyper_param_tuning(x_train,x_test,y_train,y_test,models):
     
     except Exception as  e:
         raise CustomException(e,sys)
+    
+
+def load_object(filepath):
+    try:
+        with open(filepath,'rb') as f:
+            obj = pickle.load(f)
+            return obj
+    except Exception as e:
+        raise CustomException(e,sys)
