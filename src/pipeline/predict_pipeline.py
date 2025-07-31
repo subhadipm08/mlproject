@@ -1,4 +1,5 @@
 import sys
+import os
 import pandas as pd
 from src.exception import CustomException
 from src.utils import load_object
@@ -9,8 +10,8 @@ class PredictPipeline:
         pass
     def predict(self,features):
         try:
-            modelpath='artifacts\model.pkl'
-            preprocessorpath='artifacts\preprocessor.pkl'
+            modelpath=os.path.join('artifacts','model.pkl')
+            preprocessorpath=os.path.join('artifacts','preprocessor.pkl')
             model = load_object(modelpath)
             preprocessor = load_object(preprocessorpath)
             data_scaled = preprocessor.transform(features)
